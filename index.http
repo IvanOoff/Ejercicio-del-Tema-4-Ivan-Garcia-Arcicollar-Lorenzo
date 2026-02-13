@@ -1,0 +1,52 @@
+### Variables
+@baseUrl = http://localhost:3000/api
+@todoId = 1
+
+### Health Check
+GET http://localhost:3000/health
+
+### GET - Listar todos
+GET {{baseUrl}}/todos
+
+### GET - Listar con filtros
+GET {{baseUrl}}/todos?completed=false&priority=high&sort=priority
+
+### GET - Obtener uno
+GET {{baseUrl}}/todos/{{todoId}}
+
+### POST - Crear
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Nueva tarea",
+  "description": "Descripción",
+  "priority": "high"
+}
+
+### PUT - Actualizar
+PUT {{baseUrl}}/todos/1
+Content-Type: application/json
+
+{
+  "title": "Actualizado",
+  "completed": true,
+  "priority": "medium"
+}
+
+### PATCH.
+PATCH {{baseUrl}}/todos/1/toggle
+
+### DELETE - Eliminar
+DELETE {{baseUrl}}/todos/5
+
+### Error: Título muy corto
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Hey"
+}
+
+### ID INVÁLIDO.
+GET {{baseUrl}}/todos/abc

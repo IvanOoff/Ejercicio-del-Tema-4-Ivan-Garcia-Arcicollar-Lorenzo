@@ -1,8 +1,15 @@
+/*
+    - Ejercicio T4 - PW2S.
+    - Iván García-Arcicollar Lorenzo.
+    - INSV / 3C.
+    - 13/02/2026
+*/
+
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
-import routes from './routes/index.js';
-//import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
+import todoRoutes from './src/routes/todo.routes.js';
+import { errorHandler, notFoundHandler } from './src/middleware/middleware.js';
 
 const app = express();
 
@@ -20,10 +27,10 @@ app.get('/health', (req, res) => {
 });
 
 // Rutas de la API
-app.use('/api', routes);
+app.use('/api', todoRoutes);
 
-// Manejo de errores
-//app.use(notFoundHandler);
-//app.use(errorHandler);
+// Manejo de errores (SIEMPRE AL FINAL)
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 export default app;

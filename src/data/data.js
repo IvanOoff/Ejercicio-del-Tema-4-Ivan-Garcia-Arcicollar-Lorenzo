@@ -5,14 +5,14 @@
     - 13/02/2026
 */
 
-export const todos = [
+export const todos= [
   {
     id: 1,
     title: 'Aprender Express',
     description: 'Entender routing, middleware y manejo de errores en Express.js',
     completed: true,
     priority: 'high',
-    createdAt: new Date('2024-01-15T09:30:00').toISOString(),
+    createdAt: new Date('2021-01-15T09:30:00').toISOString(),
   },
     {
     id: 2,
@@ -49,3 +49,6 @@ export const todos = [
     createdAt: new Date('2024-01-19T16:00:00').toISOString(),
   },
 ];
+
+// CONTADOR -> AUTO INCREMENTAR EL ID.
+export let siguienteId =6;

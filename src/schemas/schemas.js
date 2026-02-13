@@ -5,7 +5,7 @@
     - 13/02/2026
 */
 
-import { z } from 'zod';
+import {z} from 'zod';
 
 // POST -> A todos.
 export const createTodoSchema = z.object({
@@ -40,7 +40,7 @@ export const updateTodoSchema = z.object({
 }); 
 
 // GET.
-export const filterTodoSchema = z.object({
+export const filterTodoSchema= z.object({
   query: z.object({
     completed: z.enum(['true', 'false'])
       .transform(val => val === 'true')
